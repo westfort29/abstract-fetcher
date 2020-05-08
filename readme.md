@@ -18,11 +18,14 @@ by calling inherited methods get$ you wil get Observable<CustomerInterface>
 
 2 implement methods
 
-    - ``` getFromCacheById$(id: string): Observable<CustomerInterface>; ``` This method would be called to decided to make call to the server. If the result of the call would === ``` undefined ``` it would fetch a otherwise you would just get this result.
+    - ```getFromCacheById$(id: string): Observable<CustomerInterface>```
+    This method would be called to decided to make call to the server. If the result of the call would === ```undefined``` it would fetch a otherwise you would just get this result.
 
-    - ``` setToCacheById(id: string, payload: CustomerInterface): void; ``` This one would be called when fetch would be successfull
+    - ```setToCacheById(id: string, payload: CustomerInterface): void```
+    This one would be called when fetch would be successfull
 
-    - ``` fetchData$(params?: FetchParamsInterface): Observable<CustomerInterface>;``` Finally you just need to implement a backend call
+    - ```fetchData$(params?: FetchParamsInterface): Observable<CustomerInterface>```
+    Finally you just need to implement a backend call
 
 3. Use its methods
 
