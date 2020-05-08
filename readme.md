@@ -14,13 +14,10 @@ You may find yourself copy/pasting your code while you implementing just another
 `export class CustomerService extends AbstractDataService<CustomerInterface, FetchParamsInterface> {}`
 
 2 implement methods
-`
     - `getFromCacheById$(id: string): Observable<CustomerInterface>`
     This method would be called to decided to make call to the server. If the result of the call would === `undefined` it would fetch a otherwise you would just get this result.
-`
     - `setToCacheById(id: string, payload: CustomerInterface): void`
     This one would be called when fetch would be successfull
-`
     - `fetchData$(params?: FetchParamsInterface): Observable<CustomerInterface>`
     Finally you just need to implement a backend call
 
@@ -31,9 +28,7 @@ You may find yourself copy/pasting your code while you implementing just another
     - `fetchAndSave$(id: string, params?: FetchParamsInterface): Observable<CustomerInterface>` would force to make request and no matter if the data already exist
 
 # Tips
-`
-    - `FetchParamsInterface` from the previous example could be any type you need to. For instace,  `sting`.
-`
-    - since `FetchParamsInterface` could be any interface you need to you may put there not only get parameters but some headers and so one. It's up to you.
+- `FetchParamsInterface` from the previous example could be any type you need to. For instace,  `sting`.
+- since `FetchParamsInterface` could be any interface you need to you may put there not only get parameters but some headers and so one. It's up to you.
 
 Please use and enjoy.
