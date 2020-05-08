@@ -2,18 +2,18 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError, switchMapTo, takeWhile, tap } from 'rxjs/operators';
 import { onceRunOrCatch } from './once-run-or-catch';
 
-export abstract class AbstractService<Entity, UrlParts> {
+export abstract class AbstractDataService<Entity, Params> {
     public idsInLoading: string[] = [];
 
-    public get$(id: string, urlParts: UrlParts, params?: Record<string, string>): Observable<Entity> {
-        return this.getFromCacheById$(id).pipe(onceRunOrCatch(this.fetchAndSave$(id, urlParts, params)));
+    public get$(id: string, params?: Params): Observable<Entity> {
+        return this.getFromCacheById$(id).pipe(onceRunOrCatch(this.fetchAndSave$(id, params)));
     }
 
-    public fetchAndSave$(id: string, urlParts: UrlParts, params?: Record<string, string>): Observable<Entity> {
+    public fetchAndSave$(id: string, params?: Params): Observable<Entity> {
         return of(null).pipe(
             takeWhile(() => !this.idsInLoading.includes(id)),
             tap(() => this.idsInLoading.push(id)),
-            switchMapTo(this.fetch$(id, urlParts, params)),
+            switchMapTo(this.fetch$(id, params)),
             tap((data: Entity) => {
                 this.setToCacheById(id, data);
                 this.removeIdFromLoading(id);
@@ -21,13 +21,12 @@ export abstract class AbstractService<Entity, UrlParts> {
         );
     }
 
-    protected abstract getUrl(urlParts: UrlParts): string;
     protected abstract getFromCacheById$(id: string): Observable<Entity>;
     protected abstract setToCacheById(id: string, payload: Entity): void;
-    protected abstract fetchData$(urlParts: UrlParts, params?: Record<string, string>): Observable<Entity>;
+    protected abstract fetchData$(params?: Params): Observable<Entity>;
 
-    private fetch$(id: string, urlParts: UrlParts, params?: Record<string, string>): Observable<Entity> {
-        return this.fetchData$(urlParts, params).pipe(
+    private fetch$(id: string, params?: Params): Observable<Entity> {
+        return this.fetchData$(params).pipe(
             catchError((error) => {
                 this.removeIdFromLoading(id);
 
