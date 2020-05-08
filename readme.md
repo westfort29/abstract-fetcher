@@ -14,16 +14,21 @@ You may find yourself copy/pasting your code while you implementing just another
 ```
 export class CustomerService extends AbstractDataService<CustomerInterface, FetchParamsInterface> {}
 ```
-bycalling inherited methods get$ you wil get Observable<CustomerInterface>
+by calling inherited methods get$ you wil get Observable<CustomerInterface>
+
 2 implement methods
     - ``` protected abstract getFromCacheById$(id: string): Observable<CustomerInterface>; ```
     This method would be called to decided to make call to the server. If the result of the call would === ``` undefined ``` it would fetch a otherwise you would just get this result.
+
     - ``` protected abstract setToCacheById(id: string, payload: CustomerInterface): void; ```
     This one would be called when fetch would be successfull
+
     - ``` protected abstract fetchData$(params?: FetchParamsInterface): Observable<CustomerInterface>;```
     Finally you just need to make a backend call
+
 3. Use its methods
     - ```get$(id: string, params?: FetchParamsInterface): Observable<CustomerInterface>``` if data exist (see ```getFromCacheById```) it would return this data otherwise it would fetch and return this data
+
     - ```fetchAndSave$(id: string, params?: FetchParamsInterface): Observable<CustomerInterface>``` would force to make request and no matter if the data already exist
 
 # Tips
