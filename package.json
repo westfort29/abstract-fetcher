@@ -1,0 +1,22 @@
+{
+  "name": "abstract-fetcher",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/westfort29/abstract-fetcher.git"
+  },
+  "author": "Ilias Musin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/westfort29/abstract-fetcher/issues"
+  },
+  "homepage": "https://github.com/westfort29/abstract-fetcher#readme",
+  "devDependencies": {
+    "rxjs": "^6.5.5"
+  }
+}
