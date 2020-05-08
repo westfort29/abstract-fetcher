@@ -1,7 +1,7 @@
 {
   "name": "abstract-fetcher",
   "version": "0.1.0",
-  "description": "",
+  "description": "This is a typescript abstract class that helps you to fetch data from the server. It frees you from some copy/paste*ing code. It uses rxjs.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
