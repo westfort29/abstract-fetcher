@@ -7,7 +7,7 @@ This is a typescript abstract class that helps you to fetch data from the server
 - rxjs
 
 ## Why
-You may find yourself copy/pasting your code while you implementing just another data fetch angular service. This typescript abstract class will make the job done for you. It will check if you alreay have the data. If you have you get it. If you don't have it it will fetch it and save it.
+You may find yourself copy/pasting your code while implementing just another data fetch angular service. This typescript abstract class will make the job done for you. It will check if you alreay have the data. If you have you get it. If you don't have it it fetches data and saves it.
 
 ## How to use
 1. extend
