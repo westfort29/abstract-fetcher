@@ -27,6 +27,6 @@ You may find yourself copy/pasting your code while implementing just another dat
 
 # Tips
 - `FetchParamsInterface` from the previous example could be any type you need to. For instace,  `sting`.
-- since `FetchParamsInterface` could be any interface you need to you may put there not only get parameters but some headers and so one. It's up to you.
+- since `FetchParamsInterface` could be any interface you need to you may put there not only get parameters but some headers and so on. It's up to you.
 
 Please use and enjoy.
