@@ -9,20 +9,24 @@ interface CustomerInterface {
     lastName: string;
 }
 
-export class CustomerService extends AbstractDataService<CustomerInterface, string> {
+interface CustomerDtoInterface {
+    data: CustomerInterface;
+}
+
+export class CustomerService extends AbstractDataService<CustomerInterface, CustomerDtoInterface, string> {
     private customers$ =  new BehaviorSubject<Record<string, CustomerInterface>>({});
 
-    protected fetchData$(id: string): Observable<CustomerInterface> {
+    protected fetchData$(id: string): Observable<CustomerDtoInterface> {
         // you could use your abtraction to fetch data HttpClient, axious etc
         return from(
             fetch(`https://example.com/customer/${id}`)
-                .then(res => res.json as unknown as Promise<CustomerInterface>)
+                .then(res => res.json as unknown as Promise<CustomerDtoInterface>)
         );
     }
 
-    protected setToCacheById(id: string, payload: CustomerInterface): void {
+    protected setToCacheById(id: string, payload: CustomerDtoInterface): void {
         // you could use store, subject or any data storage you like
-        this.customers$.next({ ...this.customers$.value, id: payload });
+        this.customers$.next({ ...this.customers$.value, id: payload.data });
     }
 
     protected getFromCacheById$(id: string): Observable<CustomerInterface> {
