@@ -9,14 +9,14 @@ This is a typescript abstract class that helps you to fetch data from the server
 ## Why
 You may find yourself copy/pasting your code while you implementing just another data fetch angular service. This typescript abstract class will make the job done for you. It would do for you
 
-    - fetch data if it is undefined
-    - joins request. If 2 or more get$ was called with simmilar id at the time, only first would trigger network request, others would get data from the first request
-    - you could force updating of your storage
-    - it's flexible. It's up to you to chose what abstraction to use to fetch data or where to store it.
+- fetch data if it is undefined
+- joins request. If 2 or more get$ was called with simmilar id at the time, only first would trigger network request, others would get data from the first request
+- you could force updating of your storage
+- it's flexible. It's up to you to chose what abstraction to use to fetch data or where to store it.
 
 ## For who
-    - if you widely use rxjs in your project
-    - tired of copy/pasting your data-fetcher services 
+- if you widely use rxjs in your project
+- tired of copy/pasting your data-fetcher services 
 
 ## How to use
 1. extend
